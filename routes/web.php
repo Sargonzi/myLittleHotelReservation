@@ -10,11 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('client.index');
+});
+
+Route::get('/404', 'StaticController@notfound')->name('not_found');
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+
+    Route::get('/', 'HomeController@index')->name('admin');
+    Route::resource('users', 'UserController');
+    Route::resource('bookings', 'BookingController');
+    Route::resource('rooms', 'RoomController');
+});
+
