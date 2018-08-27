@@ -60,7 +60,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 f-about">
-                    <a href="index.html"><h1><span>e</span>Nno</h1></a>
+                    <a href="index.html"><h1><span>little</span>Hotel</h1></a>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Cras suscipit arcu libero vestibulum
                         volutpat libero sollicitudin vitae Curabitur ac aliquam consectetur adipiscing elit Cras
                         suscipit arcu libero
@@ -101,7 +101,7 @@
                           Licensing information: https://bootstrapmade.com/license/
                           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eNno
                         -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        Designed by <a href="#">BootstrapMade</a>
                     </div>
                 </div>
             </div>
