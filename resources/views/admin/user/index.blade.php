@@ -19,7 +19,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Users</h3>
+                        <h2 class="box-title">Users</h2>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -34,17 +34,19 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($users as $user)
                             <tr>
-                                <td>1</td>
-                                <td>Kyaw Zin Htet</td>
-                                <td>kyaw@email.com</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-info">detail</a>
-                                    <a class="btn btn-primary">edit</a>
-                                    <a class="btn btn-danger">delete</a>
+                                    <a class="btn btn-flat btn-info"><i class="fa fa-cog fa-fw"></i></a>
+                                    <a class="btn btn-flat btn-primary"><i class="fa fa-edit fa-fw"></i> </a>
+                                    <a class="btn btn-flat btn-danger"><i class="fa fa-trash-o fa-fw"></i> </a>
                                 </td>
                             </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -58,9 +60,7 @@
 @push('scripts')
     <script>
         $(document).ready(function () {
-            $('#tbUser').DataTable({
-
-            });
+            $('#tbUser').DataTable({});
         });
     </script>
 @endpush

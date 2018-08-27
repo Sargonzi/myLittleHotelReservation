@@ -3,19 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use Illuminate\View\View;
 
-class UserController extends Controller
+class ReportController extends Controller
 {
-    /**
-     * UserController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware(['auth', 'is.Admin']);
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -23,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::get();
-        return View('admin.user.index', compact('users'));
+        //
+        return View('admin.reports.index');
     }
 
     /**
@@ -35,7 +26,6 @@ class UserController extends Controller
     public function create()
     {
         //
-        return View('admin.user.add');
     }
 
     /**
@@ -46,13 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = [
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
-        ];
-        User::create($user);
-        return redirect()->route('users.index');
+        //
     }
 
     /**
@@ -64,6 +48,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**

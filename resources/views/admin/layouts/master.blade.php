@@ -145,8 +145,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('users.index')  }}"><i class="fa fa-circle-o"></i> All Users</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Add new</a></li>
-                        </li>
+                        <li><a href="{{ route('users.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -159,7 +158,6 @@
                     <ul class="treeview-menu">
                         <li><a href="{{ route('rooms.index')  }}"><i class="fa fa-circle-o"></i> All Rooms</a></li>
                         <li><a href="#"><i class="fa fa-circle-o"></i> Add new</a></li>
-                        </li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -173,12 +171,11 @@
                         <li><a href="{{ route('bookings.index')  }}"><i class="fa fa-circle-o"></i> All Bookings</a>
                         </li>
                         <li><a href="#"><i class="fa fa-circle-o"></i> Add new</a></li>
-                        </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{ route('reports.index') }}">
                         <i class="fa fa-calendar"></i> <span>Report</span>
                         <span class="pull-right-container">
             </span>

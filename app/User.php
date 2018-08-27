@@ -9,6 +9,10 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $casts = [
+        'isAdmin' => 'boolean',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -34,4 +38,6 @@ class User extends Authenticatable
         }
         return false;
     }
+
+
 }

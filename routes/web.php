@@ -24,5 +24,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('users', 'UserController');
     Route::resource('bookings', 'BookingController');
     Route::resource('rooms', 'RoomController');
+    Route::resource('reports', 'ReportController');
 });
 

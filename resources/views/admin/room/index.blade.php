@@ -34,17 +34,19 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($rooms as $room)
                             <tr>
-                                <td>1</td>
-                                <td>12000 MMKS</td>
-                                <td>Family</td>
+                                <td>{{ $room->id  }}</td>
+                                <td>{{ $room->price }} MMKS</td>
+                                <td>{{ $room->room_type_id }}</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-info">detail</a>
-                                    <a class="btn btn-primary">edit</a>
-                                    <a class="btn btn-danger">delete</a>
+                                    <a class="btn btn-flat btn-info"><i class="fa fa-cog fa-fw"></i></a>
+                                    <a class="btn btn-flat btn-primary"><i class="fa fa-edit fa-fw"></i> </a>
+                                    <a class="btn btn-flat btn-danger"><i class="fa fa-trash-o fa-fw"></i> </a>
                                 </td>
                             </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
