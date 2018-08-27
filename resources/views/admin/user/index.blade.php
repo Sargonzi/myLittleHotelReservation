@@ -35,18 +35,29 @@
                             </thead>
                             <tbody>
                             @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td>
-                                    <a class="btn btn-flat btn-info"><i class="fa fa-cog fa-fw"></i></a>
-                                    <a class="btn btn-flat btn-primary"><i class="fa fa-edit fa-fw"></i> </a>
-                                    <a class="btn btn-flat btn-danger"><i class="fa fa-trash-o fa-fw"></i> </a>
-                                </td>
-                            </tr>
-                                @endforeach
+                                <tr>
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>
+                                        <a class="btn btn-flat btn-info" href="{{ route('users.show', $user->id) }}"><i
+                                                    class="fa fa-cog fa-fw"></i></a>
+                                        <a class="btn btn-flat btn-primary" href="{{ route('users.edit', $user->id) }}"><i class="fa fa-edit fa-fw"></i> </a>
+
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                                              style="display: inline;"
+                                              id="delete-form">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+
+                                            <button type="submit" class="btn btn-flat btn-danger" id="delete-btn">
+                                                <i class="fa fa-trash-o"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

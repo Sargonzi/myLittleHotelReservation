@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\App;
+use Illuminate\View\View;
+use UxWeb\SweetAlert;
 
 class UserController extends Controller
 {
@@ -64,6 +67,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $user = User::find($id);
+        return View('admin.user.detail', compact('user'));
     }
 
     /**
@@ -75,6 +80,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+        return View('admin.user.edit', compact('user'));
     }
 
     /**
@@ -87,6 +94,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+//        User::update($request->get($id));
+//        return View('admins.user.index');
     }
 
     /**
@@ -98,5 +107,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        User::where('id', $id)->delete();
+        return back();
+
     }
 }

@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Add New User
+            Edit User
             <small>it all starts here</small>
         </h1>
         <ol class="breadcrumb">
@@ -20,30 +20,33 @@
                 <div class="box box-primary">
                     <div class="box-header">
                     </div>
-                    <form role="form" method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="{{ route('users.update', $user->id) }}"
+                          enctype="multipart/form-data">
                         @csrf
                         <div class="box-body">
 
                             <div class="form-group">
                                 <label for="username">User name</label>
                                 <input type="text" class="form-control" id="username" name="name"
-                                       placeholder="user name" required autofocus>
+                                       placeholder="user name" value="{{ old('name', $user->name ) }}" required
+                                       autofocus>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email address</label>
                                 <input type="email" class="form-control" id="email" name="email"
-                                       placeholder="email address" required>
+                                       placeholder="email address" value="{{ old('email', $user->email) }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" name="password"
-                                       placeholder="Password" required>
+                                       placeholder="Password" value="{{ old('password', $user->password) }}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="confpassword">Confirm Password</label>
                                 <input type="password" class="form-control" id="confpassword" name="confpassword"
-                                       placeholder="Confirm Password">
+                                       placeholder="Confirm Password"
+                                       value="{{ old('confpassword', $user->password) }}" required>
                             </div>
                             <div class="form-group">
                                 <p class="help-block">User role check if admin, default value is false.</p>
@@ -64,4 +67,3 @@
         </div>
     </section>
 @endsection
-
