@@ -27,6 +27,7 @@
                             <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Room Code</th>
                                 <th>Price</th>
                                 <th>Type</th>
                                 <th>Status</th>
@@ -37,6 +38,7 @@
                             @foreach($rooms as $room)
                             <tr>
                                 <td>{{ $room->id  }}</td>
+                                <td>{{ $room->name }}</td>
                                 <td>{{ $room->price }} MMKS</td>
                                 <td>{{ $room->room_type_id }}</td>
                                 <td><span class="badge badge-success">Active</span></td>

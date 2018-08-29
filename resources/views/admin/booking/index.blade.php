@@ -35,18 +35,20 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>BK-001</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td>
-                                    <a class="btn btn-flat btn-info"><i class="fa fa-cog fa-fw"></i></a>
-                                    <a class="btn btn-flat btn-primary"><i class="fa fa-edit fa-fw"></i> </a>
-                                    <a class="btn btn-flat btn-danger"><i class="fa fa-trash-o fa-fw"></i> </a>
-                                </td>
-                            </tr>
+                            @foreach($bookings as $booking)
+                                <tr>
+                                    <td>{{ $booking->id  }}</td>
+                                    <td>{{ $booking->booking_code  }}</td>
+                                    <td>{{ $booking->user_userid  }}</td>
+                                    <td>{{ $booking->room_roomid  }}</td>
+                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td>
+                                        <a class="btn btn-flat btn-info"><i class="fa fa-cog fa-fw"></i></a>
+                                        <a class="btn btn-flat btn-primary"><i class="fa fa-edit fa-fw"></i> </a>
+                                        <a class="btn btn-flat btn-danger"><i class="fa fa-trash-o fa-fw"></i> </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

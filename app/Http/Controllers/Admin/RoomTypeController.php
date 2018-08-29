@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\RoomType;
 
 class RoomTypeController extends Controller
 {
@@ -15,6 +16,8 @@ class RoomTypeController extends Controller
     public function index()
     {
         //
+        $roomTypes = RoomType::get();
+        return View('admin.room_type.index', compact('roomTypes'));
     }
 
     /**
@@ -25,6 +28,7 @@ class RoomTypeController extends Controller
     public function create()
     {
         //
+        return "room type add new page";
     }
 
     /**

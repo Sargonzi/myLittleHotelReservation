@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'is.Admin']);
+        $this->middleware(['auth']);
     }
 
 
@@ -50,6 +50,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request);
         $user = [
             'name' => $request->input('name'),
             'email' => $request->input('email'),

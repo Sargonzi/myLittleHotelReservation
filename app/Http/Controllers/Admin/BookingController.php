@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
+use App\Booking;
 
 class BookingController extends Controller
 {
@@ -16,7 +17,8 @@ class BookingController extends Controller
     public function index()
     {
         //
-        return View('admin.booking.index');
+        $bookings = Booking::get();
+        return View('admin.booking.index', compact('bookings'));
     }
 
     /**
@@ -27,6 +29,7 @@ class BookingController extends Controller
     public function create()
     {
         //
+        return View('admin.booking.add');
     }
 
     /**

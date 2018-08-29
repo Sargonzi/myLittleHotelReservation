@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::get('/404', 'StaticController@notfound')->name('not_found');
 
-Route::namespace('Admin')->middleware(['auth', 'is.Admin'])->prefix('admin')->group(function () {
+Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/', 'DashboardController@index')->name('admin');
     Route::resource('users', 'UserController');
     Route::resource('bookings', 'BookingController');

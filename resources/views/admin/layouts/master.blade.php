@@ -38,6 +38,13 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet"
+          href="{{ asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('bower_components/select2/dist/css/select2.min.css')}}">
+
     <!-- Admin Custom theme -->
     <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
 
@@ -166,6 +173,18 @@
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-files-o"></i>
+                        <span>Manage Room Types</span>
+                        <span class="pull-right-container">
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('roomtypes.index')  }}"><i class="fa fa-circle-o"></i> Room types</a></li>
+                        <li><a href="{{ route('roomtypes.create')  }}"><i class="fa fa-circle-o"></i> Add new</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-files-o"></i>
                         <span>Manage Bookings</span>
                         <span class="pull-right-container">
             </span>
@@ -173,7 +192,7 @@
                     <ul class="treeview-menu">
                         <li><a href="{{ route('bookings.index')  }}"><i class="fa fa-circle-o"></i> All Bookings</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Add new</a></li>
+                        <li><a href="{{ route('bookings.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
                     </ul>
                 </li>
 
@@ -231,6 +250,12 @@
 
 <!-- ChartJS -->
 <script src="{{ asset('bower_components/chart.js/Chart.js')}}"></script>
+
+<!-- bootstrap datepicker -->
+<script src="{{ asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+
+<!-- Select2 -->
+<script src="{{ asset('bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 
 <!-- Admin Custom theme js -->
 <script type="text/javascript" src="{{ asset('dist/js/adminlte.min.js') }}"></script>
