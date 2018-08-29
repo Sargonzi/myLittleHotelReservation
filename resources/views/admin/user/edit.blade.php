@@ -37,18 +37,6 @@
                                        placeholder="email address" value="{{ old('email', $user->email) }}" required>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
-                                       placeholder="Password" value="{{ old('password', $user->password) }}" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="confpassword">Confirm Password</label>
-                                <input type="password" class="form-control" id="confpassword" name="confpassword"
-                                       placeholder="Confirm Password"
-                                       value="{{ old('confpassword', $user->password) }}" required>
-                            </div>
-                            <div class="form-group">
                                 <p class="help-block">User role check if admin, default value is false.</p>
                                 <div class="checkbox">
                                     <label>

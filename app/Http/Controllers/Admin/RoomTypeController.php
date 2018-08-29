@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Room;
+use App\Http\Controllers\Controller;
 
-class RoomController extends Controller
+class RoomTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,6 @@ class RoomController extends Controller
     public function index()
     {
         //
-        $rooms = Room::get();
-        return View('admin.room.index', compact('rooms'));
     }
 
     /**

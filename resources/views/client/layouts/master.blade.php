@@ -35,16 +35,16 @@
         <div class="navbar-collapse collapse">
             <div class="menu">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="index.html">Home</a></li>
-                    <li role="presentation"><a href="#">Booking</a></li>
-                    <li role="presentation"><a href="#">Rooms</a></li>
+                    <li role="presentation" class="active"><a href="{{ route('clients.home') }}">Home</a></li>
+                    <li role="presentation"><a href="{{ route('clients.booking') }}">Booking</a></li>
+                    <li role="presentation"><a href="{{ route('clients.room') }}">Rooms</a></li>
                     @if (Route::has('login'))
-                            @auth
+                        @auth
                             <li role="presentation"><a href="{{ url('/admin') }}">Home</a></li>
-                            @else
+                        @else
                             <li role="presentation"><a href="{{ route('login') }}">Login</a></li>
                             <li role="presentation"><a href="{{ route('register') }}">Register</a></li>
-                            @endauth
+                        @endauth
 
                     @endif
                 </ul>
@@ -53,7 +53,7 @@
     </div>
 </nav>
 
- @yield('content')
+@yield('content')
 
 <footer>
     <div class="inner-footer">

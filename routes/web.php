@@ -12,15 +12,13 @@
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('client.index');
-});
+
+//Route::get('/', 'HomeController@index')->name('admin');
 
 Route::get('/404', 'StaticController@notfound')->name('not_found');
 
-Route::middleware(['auth'])->prefix('admin')->group(function () {
-
-    Route::get('/', 'HomeController@index')->name('admin');
+Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/', 'DashboardController@index')->name('admin');
     Route::resource('users', 'UserController');
     Route::resource('bookings', 'BookingController');
     Route::resource('rooms', 'RoomController');
@@ -28,3 +26,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('reports', 'ReportController');
 });
 
+
+Route::namespace('Client')->group(function () {
+    Route::get('/', 'ClientController@index')->name('clients.home');
+    Route::get('booking', 'BookingController@index')->name('clients.booking');
+    Route::get('room', 'RoomController@index')->name('clients.room');
+});
