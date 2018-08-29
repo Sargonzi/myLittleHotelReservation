@@ -32,6 +32,9 @@
     <!-- Pace Themes-->
     <link href="{{ asset('bower_components/PACE/themes/blue/pace-theme-minimal.css') }}" rel="stylesheet">
 
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="{{ asset('bower_components/jvectormap/jquery-jvectormap.css')}}">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 
@@ -215,6 +218,19 @@
 <!-- DataTables -->
 <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
+<!-- Sparkline -->
+<script src="{{ asset('bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+
+<!-- jvectormap  -->
+<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{ asset('plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+
+<!-- SlimScroll -->
+<script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+
+<!-- ChartJS -->
+<script src="{{ asset('bower_components/chart.js/Chart.js')}}"></script>
 
 <!-- Admin Custom theme js -->
 <script type="text/javascript" src="{{ asset('dist/js/adminlte.min.js') }}"></script>
