@@ -10,4 +10,9 @@ class RoomType extends Model
 
     protected $guarded = [];
 
+    public function rooms()
+    {
+        return $this->hasMany('App\Room');
+    }
+
 }
