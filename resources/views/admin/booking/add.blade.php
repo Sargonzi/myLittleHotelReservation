@@ -27,29 +27,23 @@
 
                             <div class="form-group">
                                 <label for="user">User</label>
-                                <select type="text" class="form-control select2" style="width: 100%;" id="user" name="user"
-                                       required>
-                                    <option selected="selected">Alabama</option>
-                                    <option>Alaska</option>
-                                    <option>California</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
+                                <select type="text" class="form-control" style="width: 100%;" id="user"
+                                        name="user_id"
+                                        required>
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="room">Room</label>
-                                <select type="text" class="form-control select2" style="width: 100%;" id="room" name="room"
+                                <select type="text" class="form-control" style="width: 100%;" id="room_id"
+                                        name="room"
                                         required>
-                                    <option selected="selected">Alabama</option>
-                                    <option>Alaska</option>
-                                    <option>California</option>
-                                    <option>Delaware</option>
-                                    <option>Tennessee</option>
-                                    <option>Texas</option>
-                                    <option>Washington</option>
+                                    @foreach($rooms as $room)
+                                        <option value="{{ $room->id }}">{{ $room->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -66,9 +60,17 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="status">Set status</label>
-                                < type="checkbox" class="form-control" id="status" name="status"
-                                      >
+                                Select Status
+                                <div class="form-group">
+                                    <label>
+                                        <input type="radio" name="status" class="minimal-red">
+                                        cancel
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="status" class="minimal-red">
+                                        pending
+                                    </label>
+                                </div>
                             </div>
 
                         </div>
@@ -85,20 +87,29 @@
 
 
 @push('scripts')
-<script type="text/javascript">
-    $(function () {
+    <script type="text/javascript">
+        $(function () {
 
-        $('#checkIn').datepicker({
-            autoclose: true
+            $('#checkIn').datepicker({
+                autoclose: true
+            });
+
+            $('#checkOut').datepicker({
+                autoclose: true
+            });
+
+            $('#user').select2({
+                placeholder: 'select user'
+            });
+
+            $('#room').select2({
+                placeholder: 'select room'
+            });
+
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass: 'iradio_minimal-blue'
+            })
         });
-
-        $('#checkOut').datepicker({
-            autoclose: true
-        });
-
-        $('.select2').select2();
-
-
-    });
-</script>
+    </script>
 @endpush

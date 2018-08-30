@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Room;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 use App\Booking;
+use App\User;
 
 class BookingController extends Controller
 {
@@ -29,7 +31,11 @@ class BookingController extends Controller
     public function create()
     {
         //
-        return View('admin.booking.add');
+
+        return View('admin.booking.add',
+            [
+                'users' => User::select('id', 'name')->get(),
+                'rooms' => Room::select('id', 'name')->get()]);
     }
 
     /**

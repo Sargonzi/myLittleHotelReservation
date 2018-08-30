@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Room;
+use Illuminate\View\View;
 
 class RoomController extends Controller
 {
@@ -15,7 +17,8 @@ class RoomController extends Controller
     public function index()
     {
         //
-        return View('client.room');
+        $rooms = Room::get();
+        return View('client.room', compact('rooms'));
     }
 
     /**
@@ -48,6 +51,8 @@ class RoomController extends Controller
     public function show($id)
     {
         //
+        $room = Room::where('id', $id)->get();
+        return View('client.detail', compact('room'));
     }
 
     /**

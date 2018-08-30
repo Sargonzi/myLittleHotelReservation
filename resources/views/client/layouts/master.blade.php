@@ -139,5 +139,6 @@
 <script type="text/javascript">
     $('.portfolio').flipLightBox()
 </script>
+@stack('scripts')
 </body>
 </html>

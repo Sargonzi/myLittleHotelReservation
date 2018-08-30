@@ -101,7 +101,8 @@
                         <a href="#"><span class="icon-eye"></span></a>
                         <a href="#"><span class="icon-paper-clip"></span></a>
                     </p>
-                    <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in
+                    <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear
+                        in
                         his face.</p>
                 </figcaption>
             </figure>
@@ -114,7 +115,8 @@
                         <a href="#"><span class="icon-eye"></span></a>
                         <a href="#"><span class="icon-paper-clip"></span></a>
                     </p>
-                    <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in
+                    <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear
+                        in
                         his face.</p>
                 </figcaption>
             </figure>
@@ -132,7 +134,8 @@
                         <a href="#"><span class="icon-eye"></span></a>
                         <a href="#"><span class="icon-paper-clip"></span></a>
                     </p>
-                    <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in
+                    <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear
+                        in
                         his face.</p>
                 </figcaption>
             </figure>
@@ -145,7 +148,8 @@
                         <a href="#"><span class="icon-eye"></span></a>
                         <a href="#"><span class="icon-paper-clip"></span></a>
                     </p>
-                    <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear in
+                    <p class="description">Zoe never had the patience of her sisters. She deliberately punched the bear
+                        in
                         his face.</p>
                 </figcaption>
             </figure>
