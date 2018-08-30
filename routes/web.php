@@ -29,6 +29,7 @@ Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function
 
 Route::namespace('Client')->group(function () {
     Route::get('/', 'ClientController@index')->name('clients.home');
+    Route::get('profile', 'ClientController@profile')->name('clients.profile');
     Route::get('booking', 'BookingController@index')->name('clients.booking');
     Route::get('room', 'RoomController@index')->name('clients.room');
     Route::get('room/{id}/detail', 'RoomController@show')->name('clients.room.detail');

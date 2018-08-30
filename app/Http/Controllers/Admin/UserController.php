@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+        $users = User::all();
         return View('admin.user.index', compact('users'));
     }
 
@@ -50,8 +50,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-        dd($request);
         $user = [
             'name' => $request->input('name'),
             'email' => $request->input('email'),

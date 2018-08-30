@@ -5,15 +5,6 @@
 
 
     <section class="content">
-
-        <a class="btn btn-default" href="{{ route('logout') }}"
-           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
         <!-- Info boxes -->
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Booking;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class BookingController extends Controller
 {
@@ -16,6 +18,9 @@ class BookingController extends Controller
     public function index()
     {
         //
+        if(Auth::check() == false){
+            return redirect()->route('login');
+        }
         return View('client.book');
     }
 

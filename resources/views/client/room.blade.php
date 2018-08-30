@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
-                <table id="tabRoom" class="table table-bordered table-hover">
+                <table id="tabRoom" class="table table-bordered table-hover table-striped" width="100%">
                     <thead>
                     <tr>
                         <th>No</th>
@@ -36,7 +36,10 @@
                             <td>{{ $room->id }}</td>
                             <td>{{ $room->name }}</td>
                             <td>{{ $room->roomtype_id }}</td>
-                            <td><span class="badge-success">Available</span></td>
+                            <td><span class="badge"
+                                      style="background: {{ $room->status == 1? "#00ff00" : "#cccccc" }};">
+                                    {{ $room->status == 1? "Active" : "Disable" }}
+                                </span></td>
                             <th><a href="{{ route('clients.room.detail', $room->id) }}"
                                    class="btn btn-flat btn-warning"><i class="fa fa-info-circle fa-fx">View
                                         Details</i></a></th>

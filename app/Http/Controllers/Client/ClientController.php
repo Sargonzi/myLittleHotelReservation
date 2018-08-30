@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class ClientController extends Controller
 {
@@ -16,6 +18,12 @@ class ClientController extends Controller
     {
         //
         return View('client.index');
+    }
+
+    public function profile()
+    {
+        $user = User::find(Auth::user()->id);
+        return View('client.profile', compact('user'));
     }
 
     /**

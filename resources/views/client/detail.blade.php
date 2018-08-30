@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="panel-footer">
-                        <a href="#" class="btn btn-flat btn-primary">Book</a>
+                        <a href="{{ route('clients.booking') }}" class="btn btn-flat btn-primary">Book</a>
                         <a href="{{ route('clients.room') }}" class="btn btn-flat btn-primary">Cancel</a>
                     </div>
                 </div>

@@ -12,6 +12,9 @@ class DashboardController extends Controller
 
     public function index()
     {
+        if (Auth::user()->is_admin != 1) {
+            return redirect()->route('clients.profile');
+        }
         return View('admin.index');
     }
 }

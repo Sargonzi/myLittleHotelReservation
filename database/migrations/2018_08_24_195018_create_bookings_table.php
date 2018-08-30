@@ -19,6 +19,7 @@ class CreateBookingsTable extends Migration
             $table->integer('user_userid');
             $table->integer('room_roomid');
             $table->integer('status')->default(2);
+//            check in and check out
             $table->timestamps();
         });
     }
