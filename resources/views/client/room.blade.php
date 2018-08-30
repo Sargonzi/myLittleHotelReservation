@@ -25,7 +25,6 @@
                     <tr>
                         <th>No</th>
                         <th>Room Name</th>
-                        <th>Price</th>
                         <th>Room Type</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -36,7 +35,6 @@
                         <tr>
                             <td>{{ $room->id }}</td>
                             <td>{{ $room->name }}</td>
-                            <td>{{ $room->price }} MMKS</td>
                             <td>{{ $room->roomtype_id }}</td>
                             <td><span class="badge-success">Available</span></td>
                             <th><a href="{{ route('clients.room.detail', $room->id) }}"

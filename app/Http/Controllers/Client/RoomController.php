@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\RoomType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Room;
@@ -51,8 +52,9 @@ class RoomController extends Controller
     public function show($id)
     {
         //
-        $room = Room::where('id', $id)->get();
-        return View('client.detail', compact('room'));
+        $room = Room::find($id);
+        $room_type = RoomType::find($room->roomtype_id);
+        return View('client.detail', compact('room', 'room_type'));
     }
 
     /**
