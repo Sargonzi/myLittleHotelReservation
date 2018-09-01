@@ -13,14 +13,7 @@ class Booking extends Model
      * @var array
      */
     protected $fillable = [
-        'booking_code', 'user_userid', 'room_roomid', 'status'
+        'booking_code', 'user_userid', 'room_roomid', 'status', 'check_in', 'check_out'
     ];
 
-    public function user(){
-       return $this->belongsTo(User::class);
-    }
-
-    public function room(){
-       return $this->hasMany(Room::class);
-    }
 }

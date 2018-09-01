@@ -41,9 +41,9 @@
                                     <td>{{ $booking->booking_code  }}</td>
                                     <td>{{ $booking->user_userid  }}</td>
                                     <td>{{ $booking->room_roomid  }}</td>
-                                    <td><span class="badge badge-success">Active</span></td>
+                                    <td><span class="badge badge-success" style="background: {{ $booking->status == 1 ? "#00a65a": "#d2d6de" }}">{{ $booking->status == 1 ? "Active" : "Disable" }}</span></td>
                                     <td>
-                                        <a class="btn btn-flat btn-info"><i class="fa fa-cog fa-fw"></i></a>
+                                        <a href="{{ route('bookings.show', $booking->id) }}" class="btn btn-flat btn-info"><i class="fa fa-cog fa-fw"></i></a>
                                         <a class="btn btn-flat btn-primary"><i class="fa fa-edit fa-fw"></i> </a>
                                         <a class="btn btn-flat btn-danger"><i class="fa fa-trash-o fa-fw"></i> </a>
                                     </td>

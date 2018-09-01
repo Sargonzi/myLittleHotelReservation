@@ -33,9 +33,9 @@ class BookingController extends Controller
         //
 
         return View('admin.booking.add',
-                    [
-                        'users' => User::select('id', 'name')->get(),
-                        'rooms' => Room::select('id', 'name')->get()]);
+            [
+                'users' => User::select('id', 'name')->get(),
+                'rooms' => Room::select('id', 'name')->get()]);
     }
 
     /**
@@ -47,6 +47,19 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //
+        $booking = [
+            'booking_code' => $request->input('bookingCode'),
+            'user_userid' => $request->input('user_id'),
+            'room_roomid' => $request->input('room_id'),
+            'check_in' => $request->input('checkIn'),
+            'check_out' => $request->input('checkOut'),
+            'status' => $request->input('status') ? '1' : '0'
+        ];
+        Booking::create($booking);
+        $bookedRoom = Room::find($request->input('room_id'));
+        $bookedRoom->status = '0';
+        $bookedRoom->save();
+        return redirect()->route('bookings.index');
     }
 
     /**
@@ -58,6 +71,10 @@ class BookingController extends Controller
     public function show($id)
     {
         //
+        $booking = Booking::find($id);
+        $userName = User::find($booking->user_userid);
+        $roomName = Room::find($booking->room_roomid);
+        return View('admin.booking.detail', compact('booking', 'userName', 'roomName'));
     }
 
     /**

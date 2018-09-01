@@ -13,11 +13,11 @@ class Room extends Model
      * @var array
      */
     protected $fillable = [
-        'price','room_type_id','hasTV','hasWarmshower','hasBreakfast','maxPerson','status'
+        'name', 'price', 'roomtype_id', 'hasTV', 'hasWarmshower', 'hasBreakfast', 'maxPerson', 'status'
     ];
 
 
-    public function type()
+    public function roomtype()
     {
         return $this->belongsTo('App\RoomType');
     }

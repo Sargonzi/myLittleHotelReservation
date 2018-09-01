@@ -18,8 +18,7 @@ class RoomController extends Controller
     public function index()
     {
         //
-        $rooms = Room::get();
-        $roomtype = RoomType::where('id', $rooms->roomtype_id);
+        $rooms = Room::all();
         return View('admin.room.index', compact('rooms'));
     }
 
@@ -31,37 +30,51 @@ class RoomController extends Controller
     public function create()
     {
         //
-        return View('admin.room.add');
+        $roomTypes = RoomType::all();
+        return View('admin.room.add', compact('roomTypes'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
+        $room = [
+            'name' => $request->input('roomName'),
+            'price' => $request->input('roomPrice'),
+            'roomtype_id' => $request->input('roomType'),
+            'hasTV' => $request->input('hasTV') ? '1' : '0',
+            'hasWarmshower' => $request->input('hasWarmshower') ? '1' : '0',
+            'hasBreakfast' => $request->input('hasBreakfast') ? '1' : '0',
+            'maxPerson' => $request->input('maxPerson'),
+            'status' => $request->input('status') ? '1' : '0'
+        ];
+        Room::create($room);
+        return redirect()->route('rooms.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         //
         $room = Room::find($id);
-        return View('admin.room.detail', compact('room'));
+        $roomType = RoomType::find($room->roomtype_id);
+        return View('admin.room.detail', compact('room', 'roomType'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -72,8 +85,8 @@ class RoomController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -84,7 +97,7 @@ class RoomController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

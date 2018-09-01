@@ -39,7 +39,7 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td><span class="badge badge-success" style="background: {{ $user->status == 1 ? "#00ff00": "#eeeeee" }}">{{ $user->status == 1 ? "Active" : "Disable" }}</span></td>
+                                    <td><span class="badge badge-success" style="background: {{ $user->status == 1 ? "#00a65a": "#d2d6de" }}">{{ $user->status == 1 ? "Active" : "Disable" }}</span></td>
                                     <td>
                                         <a class="btn btn-flat btn-info" href="{{ route('users.show', $user->id) }}"><i
                                                     class="fa fa-cog fa-fw"></i></a>

@@ -31,14 +31,49 @@
 
                             <div class="form-group">
                                 <label for="roomPrice">Price</label>
-                                <input type="text" class="form-control" id="roomPrice" name="roomName"
+                                <input type="text" class="form-control" id="roomPrice" name="roomPrice"
                                        placeholder="room price" required autofocus>
                             </div>
 
                             <div class="form-group">
                                 <label for="maxPerson">Maximum person</label>
-                                <input type="number" class="form-control" id="maxPerson" name="roomName"
+                                <input type="number" class="form-control" id="maxPerson" name="maxPerson"
                                        placeholder="maximum person" required autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="roomType">Room type</label>
+                                <select type="text" class="form-control" style="width: 100%;" id="roomtype"
+                                        name="roomType"
+                                        required>
+                                    @foreach($roomTypes as $roomType)
+                                        <option value="{{ $roomType->id }}">{{ $roomType->type }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="hasTV"> Has TV
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="hasWarmshower"> Has Warm shower
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="hasBreakfast"> Has Breakfast
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="box-footer">
@@ -53,3 +88,15 @@
 
 
 @endsection
+
+@push('scripts')
+    <script type="text/javascript">
+        $(function () {
+            $('#roomtype').select2({
+                placeholder: 'select user'
+            });
+
+
+        });
+    </script>
+@endpush

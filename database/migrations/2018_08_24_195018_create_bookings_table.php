@@ -18,6 +18,8 @@ class CreateBookingsTable extends Migration
             $table->string('booking_code')->unique();
             $table->integer('user_userid');
             $table->integer('room_roomid');
+            $table->string('check_in');
+            $table->string('check_out');
             $table->integer('status')->default(2);
 //            check in and check out
             $table->timestamps();

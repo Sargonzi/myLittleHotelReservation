@@ -26,6 +26,11 @@
                         <div class="box-body">
 
                             <div class="form-group">
+                                <label for="bookingCode">Booking code</label>
+                                <input type="text" class="form-control" id="bookingCode" name="bookingCode"
+                                       placeholder="Booking code" required autofocus>
+                            </div>
+                            <div class="form-group">
                                 <label for="user">User</label>
                                 <select type="text" class="form-control" style="width: 100%;" id="user"
                                         name="user_id"
@@ -38,8 +43,8 @@
 
                             <div class="form-group">
                                 <label for="room">Room</label>
-                                <select type="text" class="form-control" style="width: 100%;" id="room_id"
-                                        name="room"
+                                <select type="text" class="form-control" style="width: 100%;" id="room"
+                                        name="room_id"
                                         required>
                                     @foreach($rooms as $room)
                                         <option value="{{ $room->id }}">{{ $room->name }}</option>

@@ -29,7 +29,6 @@
                                 <th>No</th>
                                 <th>Room Code</th>
                                 <th>Price</th>
-                                <th>Type</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -40,8 +39,7 @@
                                 <td>{{ $room->id  }}</td>
                                 <td>{{ $room->name }}</td>
                                 <td>{{ $room->price }} MMKS</td>
-                                <td>{{ $room->room_type_id }}</td>
-                                <td><span class="badge badge-success">Active</span></td>
+                                <td><span class="badge badge-success" style="background: {{ $room->status == 1 ? "#00a65a": "#d2d6de" }}">{{ $room->status == 1 ? "Active" : "Disable" }}</span></td>
                                 <td>
                                     <a class="btn btn-flat btn-info" href="{{ route('rooms.show', $room->id ) }}"><i class="fa fa-cog fa-fw"></i></a>
                                     <a class="btn btn-flat btn-primary"><i class="fa fa-edit fa-fw"></i> </a>
