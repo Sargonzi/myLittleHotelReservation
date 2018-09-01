@@ -33,9 +33,9 @@ class BookingController extends Controller
         //
 
         return View('admin.booking.add',
-            [
-                'users' => User::select('id', 'name')->get(),
-                'rooms' => Room::select('id', 'name')->get()]);
+                    [
+                        'users' => User::select('id', 'name')->get(),
+                        'rooms' => Room::select('id', 'name')->get()]);
     }
 
     /**

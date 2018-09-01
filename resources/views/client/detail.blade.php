@@ -12,7 +12,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <p class="text-light">Room details</p>
+                        <p>Room details</p>
                     </div>
                     <div class="panel-body">
                         <h4 class="header">Basic infomations</h4>
@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label for="roomPrice">Price: </label>
-                            <p id="roomPrice"> {{ $room->price }} MMKS <span class="text-muted">per night.</span></p>
+                            <p id="roomPrice"> {{ $room->price }} MMKS <span class="text-muted">per day.</span></p>
                         </div>
 
                         <div class="form-group">
@@ -46,8 +46,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="roomMxperson">Max person?</label>
-                            <p id="roomMxperson"> {{ $room->maxPerson }} people</p>
+                            <label for="roomMaxperson">Max person?</label>
+                            <p id="roomMaxperson"> {{ $room->maxPerson }} people</p>
                         </div>
 
                         <div class="form-group">

@@ -22,7 +22,14 @@ class DatabaseSeeder extends Seeder
                 'email' => $faker->email,
                 'password' => bcrypt('secret'),
                 'is_admin' => $faker->numberBetween(0, 1),
-                'phone' => $faker->phoneNumber
+                'phone' => $faker->phoneNumber,
+                'address'=> $faker->address,
+                'nrc' => '9/MaKaNa(N)123456',
+                'passport'=> $faker->creditCardNumber,
+                'city' => $faker->city,
+                'country' => $faker->country,
+                'is_foreigner' => $faker->numberBetween(0, 1),
+                'status' => $faker->numberBetween(0, 1)
             ]);
         }
         foreach (range(1, 10) as $index) {

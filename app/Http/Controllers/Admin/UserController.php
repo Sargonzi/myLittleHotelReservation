@@ -54,6 +54,15 @@ class UserController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
+            'is_admin' => $request->input('isAdmin') ? '1' : '0',
+            'phone' => $request->input('phone'),
+            'nrc' => $request->input('nrc'),
+            'passport' => $request->input('passport'),
+            'city' => $request->input('city'),
+            'country' => $request->input('country'),
+            'address' => $request->input('address'),
+            'is_foreigner' => $request->input('is_foreigner') ? '1' : '0',
+            'status' => $request->input('status') ? '1' : '0'
         ];
         User::create($user);
         return redirect()->route('users.index');

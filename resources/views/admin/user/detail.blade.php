@@ -9,7 +9,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>add_new</li>
+            <li>detail</li>
         </ol>
     </section>
 
@@ -32,7 +32,7 @@
                                 <b>Booked</b> <a class="pull-right">1,322</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Status</b> <a class="pull-right">Active</a>
+                                <b>Status</b> <a class="pull-right">{{$user->status ? "Active" : "Inactive" }}</a>
                             </li>
                         </ul>
 
@@ -50,7 +50,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <strong><i class="fa fa-book margin-r-5"></i> Email</strong>
+                        <strong><i class="fa fa-envelope-o margin-r-5"></i> Email</strong>
 
                         <p class="text-muted">
                             {{ $user->email }}
@@ -58,16 +58,51 @@
 
                         <hr>
 
-                        <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+                        <strong><i class="fa fa-phone margin-r-5"></i> Phone</strong>
 
-                        <p class="text-muted">Malibu, California</p>
+                        <p class="text-muted">
+                            {{ $user->phone }}
+                        </p>
 
                         <hr>
 
-                        <strong><i class="fa fa-pencil margin-r-5"></i> is Admin?</strong>
+
+                        <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+                        <p class="text-muted">
+                            {{ $user->address }}
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fa fa-map margin-r-5"></i> City</strong>
+
+                        <p class="text-muted">
+                            {{ $user->city }}
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fa fa-flag margin-r-5"></i> Country</strong>
+
+                        <p class="text-muted">
+                            {{ $user->country }}
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fa fa-user margin-r-5"></i> is Admin?</strong>
 
                         <p>
                             {{ $user->is_admin? "Yes"  : "No" }}
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fa fa-user margin-r-5"></i> is Foreigner?</strong>
+
+                        <p>
+                            {{ $user->is_foreigner? "Yes"  : "No" }}
                         </p>
 
                         <hr>

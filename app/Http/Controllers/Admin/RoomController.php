@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\RoomType;
 use Illuminate\Http\Request;
 use App\Room;
 use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 
 class RoomController extends Controller
 {
@@ -17,6 +19,7 @@ class RoomController extends Controller
     {
         //
         $rooms = Room::get();
+        $roomtype = RoomType::where('id', $rooms->roomtype_id);
         return View('admin.room.index', compact('rooms'));
     }
 
@@ -28,6 +31,7 @@ class RoomController extends Controller
     public function create()
     {
         //
+        return View('admin.room.add');
     }
 
     /**
@@ -50,6 +54,8 @@ class RoomController extends Controller
     public function show($id)
     {
         //
+        $room = Room::find($id);
+        return View('admin.room.detail', compact('room'));
     }
 
     /**

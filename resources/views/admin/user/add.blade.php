@@ -45,11 +45,57 @@
                                 <input type="password" class="form-control" id="confpassword" name="confpassword"
                                        placeholder="Confirm Password">
                             </div>
+
+                            <div class="form-group">
+                                <label for="phone">Pone</label>
+                                <input type="text" class="form-control" id="phone" name="phone"
+                                       placeholder="Phone" required autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nrc">NRC</label>
+                                <input type="text" class="form-control" id="nrc" name="nrc"
+                                       placeholder="NRC" required autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="passport">Passport</label>
+                                <input type="text" class="form-control" id="passport" name="passport"
+                                       placeholder="Passport" required autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city" name="city"
+                                       placeholder="City" required autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" id="country" name="country"
+                                       placeholder="Country" required autofocus>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" id="address" name="address"
+                                       placeholder="Address" required autofocus>
+                            </div>
+
                             <div class="form-group">
                                 <p class="help-block">User role check if admin, default value is false.</p>
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="isAdmin"> is Admin
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <p class="help-block">Check if the user is foreigner</p>
+                                    <label>
+                                        <input type="checkbox" name="isForeigner"> is Foreigner
                                     </label>
                                 </div>
                             </div>

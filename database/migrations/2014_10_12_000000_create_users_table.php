@@ -20,6 +20,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('is_admin')->default(false);
             $table->string('phone');
+            $table->string('address');
+            $table->string('nrc');
+            $table->string('passport');
+            $table->string('city');
+            $table->string('country');
+            $table->boolean('is_foreigner');
+            $table->boolean('status')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

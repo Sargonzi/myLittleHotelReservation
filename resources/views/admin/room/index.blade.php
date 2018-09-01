@@ -43,7 +43,7 @@
                                 <td>{{ $room->room_type_id }}</td>
                                 <td><span class="badge badge-success">Active</span></td>
                                 <td>
-                                    <a class="btn btn-flat btn-info"><i class="fa fa-cog fa-fw"></i></a>
+                                    <a class="btn btn-flat btn-info" href="{{ route('rooms.show', $room->id ) }}"><i class="fa fa-cog fa-fw"></i></a>
                                     <a class="btn btn-flat btn-primary"><i class="fa fa-edit fa-fw"></i> </a>
                                     <a class="btn btn-flat btn-danger"><i class="fa fa-trash-o fa-fw"></i> </a>
                                 </td>

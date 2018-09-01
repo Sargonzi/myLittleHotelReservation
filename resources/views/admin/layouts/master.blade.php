@@ -137,7 +137,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('rooms.index')  }}"><i class="fa fa-circle-o"></i> All Rooms</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Add new</a></li>
+                        <li><a href="{{ route('rooms.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

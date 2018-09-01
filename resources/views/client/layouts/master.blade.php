@@ -40,7 +40,7 @@
                     <li role="presentation"><a href="{{ route('clients.room') }}">Rooms</a></li>
                     @if (Route::has('login'))
                         @auth
-                            <li role="presentation"><a href="{{ url('/admin') }}">Home</a></li>
+                            <li role="presentation"><a href="{{ route('clients.profile') }}">Profile</a></li>
                             <li role="presentation"><a href="{{ route('logout') }}"
                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

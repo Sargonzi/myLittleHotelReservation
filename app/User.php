@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'isAdmin'
+        'name', 'email', 'password', 'is_admin', 'phone', 'address', 'nrc', 'passport', 'city', 'country', 'is_foreigner', 'status'
     ];
 
     /**
@@ -34,6 +34,14 @@ class User extends Authenticatable
     public function isAdmin()
     {
         if ($this->is_admin === 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isForeigner()
+    {
+        if ($this->is_foreigner == 1) {
             return true;
         }
         return false;
