@@ -7,9 +7,9 @@
             <div class="slider">
                 <div class="img-responsive">
                     <ul class="bxslider">
-                        <li><img src="{{ asset('img/01.jpg')}}" alt=""/></li>
-                        <li><img src="{{ asset('img/01.jpg')}}" alt=""/></li>
-                        <li><img src="{{ asset('img/01.jpg')}}" alt=""/></li>
+                        <li><img src="{{ asset('img/hotel001.jpg')}}" alt=""/></li>
+                        <li><img src="{{ asset('img/hotel002.jpg')}}" alt=""/></li>
+                        <li><img src="{{ asset('img/hotel003.jpg')}}" alt=""/></li>
                     </ul>
                 </div>
             </div>
@@ -93,7 +93,7 @@
     <div class="content">
         <div class="grid">
             <figure class="effect-zoe">
-                <img src="img/25.jpg" alt="img25"/>
+                <img src="img/hotel006.jpg" alt="img25"/>
                 <figcaption>
                     <h2>Title <span>Name</span></h2>
                     <p class="icon-links">
@@ -107,7 +107,7 @@
                 </figcaption>
             </figure>
             <figure class="effect-zoe">
-                <img src="{{ asset('img/26.jpg')}}" alt="img26"/>
+                <img src="{{ asset('img/hotel005.jpg')}}" alt="img26"/>
                 <figcaption>
                     <h2>Title <span>Name</span></h2>
                     <p class="icon-links">
@@ -126,7 +126,7 @@
     <div class="content">
         <div class="grid">
             <figure class="effect-zoe">
-                <img src="{{ asset('img/27.jpg') }}" alt="img27"/>
+                <img src="{{ asset('img/hotel006.jpg') }}" alt="img27"/>
                 <figcaption>
                     <h2>Title <span>Name</span></h2>
                     <p class="icon-links">
@@ -140,7 +140,7 @@
                 </figcaption>
             </figure>
             <figure class="effect-zoe">
-                <img src="{{ asset('img/30.jpg') }}" alt="img30"/>
+                <img src="{{ asset('img/hotel005.jpg') }}" alt="img30"/>
                 <figcaption>
                     <h2>Title <span>Name</span></h2>
                     <p class="icon-links">

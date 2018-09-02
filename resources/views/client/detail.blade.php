@@ -11,9 +11,7 @@
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <p>Room details</p>
-                    </div>
+
                     <div class="panel-body">
                         <h4 class="header">Basic infomations</h4>
                         <div class="form-group">
@@ -52,7 +50,7 @@
 
                         <div class="form-group">
                             <label for="roomStatus">Available?</label>
-                            <p id="roomStatus"> <span class="badge" style="background: {{ $room->status == 1? "#00ff00" : "#cccccc" }};">
+                            <p id="roomStatus"> <span class="badge" style="background: {{ $room->status == 1 ? "#00a65a": "#d2d6de" }}">
                                     {{ $room->status == 1? "Active" : "Disable" }}
                                 </span> </p>
                         </div>

@@ -11,9 +11,20 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6">
+                <h4 class="header"> Name: {{ $user->name }}</h4>
 
-                <h4 class="header">{{ $user->name }}</h4>
+                <p><i class="fa fa-envelope-o fa-fw"></i> {{ $user-> email}}</p>
+                <p><i class="fa fa-phone fa-fw"></i> {{ $user-> phone}}</p>
+                <p><i class="fa fa-user fa-fw"></i> {{ $user-> nrc}}</p>
+                <p><i class="fa fa-user fa-fw"></i> {{ $user-> passport}}</p>
+                <p><i class="fa fa-location-arrow fa-fw"></i> {{ $user-> address}}</p>
+                <p><i class="fa fa-location-arrow fa-fw"></i> {{ $user-> city}}</p>
+                <p><i class="fa fa-flag fa-fw"></i> {{ $user-> country}}</p>
+            </div>
+            <div class="col-md-6">
+
+                <h4 class="header">My booked history</h4>
 
                 <table id="tabRoom" class="table table-bordered table-hover table-striped" width="100%">
                     <thead>

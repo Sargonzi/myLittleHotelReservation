@@ -165,14 +165,6 @@
                         <li><a href="{{ route('bookings.create') }}"><i class="fa fa-circle-o"></i> Add new</a></li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="{{ route('reports.index') }}">
-                        <i class="fa fa-calendar"></i> <span>Report</span>
-                        <span class="pull-right-container">
-            </span>
-                    </a>
-                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

@@ -41,6 +41,12 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="numPerson">Person</label>
+                            <input type="number" class="form-control" id="numPerson" name="numPerson"
+                                   placeholder="Person ">
+                        </div>
+
+                        <div class="form-group">
                             <label for="checkIn">Check in</label>
                             <input type="text" class="form-control" id="checkIn" name="checkIn"
                                    placeholder="check in ">

@@ -62,7 +62,7 @@ class UserController extends Controller
             'country' => $request->input('country'),
             'address' => $request->input('address'),
             'is_foreigner' => $request->input('is_foreigner') ? '1' : '0',
-            'status' => $request->input('status') ? '1' : '0'
+            'status' => "1"
         ];
         User::create($user);
         return redirect()->route('users.index');

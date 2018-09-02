@@ -8,6 +8,7 @@ use App\Booking;
 use App\Room;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use DateTime;
 
 class BookingController extends Controller
 {
@@ -33,6 +34,9 @@ class BookingController extends Controller
     public function create($id)
     {
         //
+        if (Auth::check() == false) {
+            return redirect()->route('login');
+        }
         $room = Room::find($id);
         $user = Auth::user();
         return View('client.book', compact('room', 'user'));
@@ -47,19 +51,28 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //
+        $room = Room::find($request->input('roomId'));
+        $fdate = $request->input('checkIn');
+        $tdate = $request->input('checkOut');
+        $datetime1 = new DateTime($fdate);
+        $datetime2 = new DateTime($tdate);
+        $interval = $datetime1->diff($datetime2);
+        $totalPrice = ($room->price * $interval->d);
         $booking = [
             'booking_code' => $request->input('bookingCode') . rand(100000, 999999),
             'user_userid' => $request->input('userId'),
             'room_roomid' => $request->input('roomId'),
             'check_in' => $request->input('checkIn'),
             'check_out' => $request->input('checkOut'),
+            'num_person' => $request->input('numPerson'),
+            'total_price' => $totalPrice,
             'status' => "1"
         ];
         Booking::create($booking);
         $bookedRoom = Room::find($request->input('roomId'));
         $bookedRoom->status = '0';
         $bookedRoom->save();
-        return View('client.success');
+        return View('client.success', compact('booking','room'));
     }
 
     /**

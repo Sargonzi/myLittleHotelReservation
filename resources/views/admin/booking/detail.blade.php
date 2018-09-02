@@ -74,6 +74,13 @@
 
                         <hr>
 
+                        <strong><i class="fa fa-dollar margin-r-5"></i> Number of people</strong>
+
+                        <p class="text-muted">
+                            {{ $booking->num_person }} persons
+                        </p>
+                        <hr>
+
                         <strong><i class="fa fa-dollar margin-r-5"></i> Total price</strong>
 
                         <p class="text-muted">
@@ -82,7 +89,7 @@
 
                     </div>
                     <div class="box-footer">
-                        <a class="btn btn-primary btn-flat" href="#">Edit</a>
+                        <a class="btn btn-primary btn-flat" href="{{ route('bookings.edit', $booking->id) }}">Edit</a>
                         <a class="btn btn-primary btn-flat" href="{{ route('bookings.index') }}">Ok</a>
                         <a class="btn btn-primary btn-flat" href="{{ route('bookings.download', $booking->id) }}"><i
                                     class="fa fa-print fa-fw"></i></a>

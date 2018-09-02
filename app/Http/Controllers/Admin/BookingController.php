@@ -58,13 +58,14 @@ class BookingController extends Controller
         $datetime1 = new DateTime($fdate);
         $datetime2 = new DateTime($tdate);
         $interval = $datetime1->diff($datetime2);
-        $totalPrice = $room->price * (int)$interval->d;
+        $totalPrice = ($room->price * (int)$interval->d);
         $booking = [
             'booking_code' => $request->input('bookingCode'),
             'user_userid' => $request->input('user_id'),
             'room_roomid' => $request->input('room_id'),
             'check_in' => $request->input('checkIn'),
             'check_out' => $request->input('checkOut'),
+            'num_person' => $request->input('numPerson'),
             'total_price' => $totalPrice,
             'status' => $request->input('status') ? '1' : '0'
         ];
@@ -99,6 +100,13 @@ class BookingController extends Controller
     public function edit($id)
     {
         //
+
+        $booking = Booking::find($id);
+        $userOne = User::find($booking->user_userid);
+        $roomOne = Room::find($booking->room_roomid);
+        $users = User::all();
+        $rooms = Room::all();
+        return View('admin.booking.edit', compact('booking', 'userOne', 'roomOne', 'users', 'rooms'));
     }
 
     /**
@@ -111,6 +119,8 @@ class BookingController extends Controller
     public function update(Request $request, $id)
     {
         //
+        Booking::update($request->get($id));
+        return redirect()->route('bookings.index');
     }
 
     /**
@@ -122,6 +132,8 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
+        Booking::where('id', $id)->delete();
+        return back();
     }
 
 
@@ -142,6 +154,6 @@ class BookingController extends Controller
         $user = User::find($booking->user_userid);
         $room = Room::find($booking->room_roomid);
         Mail::to('zisarknar.me@gmail.com')->send(new SendMailable($booking, $user, $room));
-        return "email sent";
+        return redirect()->route('bookings.index');
     }
 }
