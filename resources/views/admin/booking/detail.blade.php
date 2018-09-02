@@ -75,6 +75,8 @@
                     <div class="box-footer">
                         <a class="btn btn-primary btn-flat" href="#">Edit</a>
                         <a class="btn btn-primary btn-flat" href="{{ route('bookings.index') }}">Ok</a>
+                        <a class="btn btn-primary btn-flat" href="{{ route('bookings.download', $booking->id) }}"><i class="fa fa-print fa-fw"></i></a>
+                        <a class="btn btn-primary btn-flat" href="{{ route('bookings.email', $booking->id) }}"><i class="fa fa-mail-forward fa-fw"></i></a>
                     </div>
                 </div>
             </div>

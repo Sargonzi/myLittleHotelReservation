@@ -8,6 +8,10 @@ use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 use App\Booking;
 use App\User;
+use PDF;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
+
 
 class BookingController extends Controller
 {
@@ -109,5 +113,26 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function download($id)
+    {
+        $booking = Booking::find($id);
+        $user = User::find($booking->user_userid);
+        $room = Room::find($booking->room_roomid);
+
+        $pdf = PDF::loadView('bookPdf', compact('booking', 'user', 'room'));
+
+        return $pdf->download('receive.pdf');
+    }
+
+    public function email($id)
+    {
+        $booking = Booking::find($id);
+        $user = User::find($booking->user_userid);
+        $room = Room::find($booking->room_roomid);
+        Mail::to('zisarknar.me@gmail.com')->send(new SendMailable($booking, $user, $room));
+        return "email sent";
     }
 }

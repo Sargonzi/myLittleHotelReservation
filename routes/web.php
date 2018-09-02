@@ -21,9 +21,11 @@ Route::namespace('Admin')->middleware(['auth'])->prefix('admin')->group(function
     Route::get('/', 'DashboardController@index')->name('admin');
     Route::resource('users', 'UserController');
     Route::resource('bookings', 'BookingController');
+    Route::get('booking/download/{id}', 'BookingController@download')->name('bookings.download');
     Route::resource('rooms', 'RoomController');
     Route::resource('roomtypes', 'RoomTypeController');
     Route::resource('reports', 'ReportController');
+    Route::get('email/send/{id}', 'BookingController@email')->name('bookings.email');
 });
 
 
