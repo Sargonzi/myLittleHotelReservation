@@ -15,8 +15,8 @@ class UserTableSeeder extends Seeder
         //
         $faker = Faker::create();
         DB::table('users')->insert([
-            'name' => "root",
-            'email' => "root@email.com",
+            'name' => "Kyaw zin Htet",
+            'email' => "kyawzin@email.com",
             'password' => bcrypt('secret'),
             'is_admin' => "1",
             'phone' => "09123456",
@@ -30,7 +30,7 @@ class UserTableSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'name' => "client",
+            'name' => "Kyaw Zin Htet (client)",
             'email' => "test@email.com",
             'password' => bcrypt('secret'),
             'is_admin' => "0",

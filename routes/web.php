@@ -33,8 +33,10 @@ Route::namespace('Client')->group(function () {
     Route::get('/', 'ClientController@index')->name('clients.home');
     Route::get('profile', 'ClientController@profile')->name('clients.profile');
     Route::get('booking/{id}', 'BookingController@create')->name('clients.booking');
-    Route::post('booking/store', 'Bookingcontroller@store')->name('clients.booking.store');
+    Route::post('booking/store', 'BookingController@store')->name('clients.booking.store');
     Route::get('booking/download/{id}', 'BookingController@download')->name('clients.bookings.download');
+    Route::get('email/send/{id}', 'BookingController@email')->name('clients.bookings.email');
     Route::get('room', 'RoomController@index')->name('clients.room');
     Route::get('room/{id}/detail', 'RoomController@show')->name('clients.room.detail');
+    Route::get('success', 'BookingController@success')->name('clients.booking.success');
 });

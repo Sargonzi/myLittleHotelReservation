@@ -9,6 +9,10 @@ use App\Room;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use DateTime;
+use PDF;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
+use App\User;
 
 class BookingController extends Controller
 {
@@ -72,7 +76,7 @@ class BookingController extends Controller
         $bookedRoom = Room::find($request->input('roomId'));
         $bookedRoom->status = '0';
         $bookedRoom->save();
-        return View('client.success', compact('booking','room'));
+        return redirect()->route('clients.profile');
     }
 
     /**
@@ -120,14 +124,17 @@ class BookingController extends Controller
         //
     }
 
+    public function success()
+    {
+        return View('client.success');
+    }
+
     public function download($id)
     {
         $booking = Booking::find($id);
         $user = User::find($booking->user_userid);
         $room = Room::find($booking->room_roomid);
-
         $pdf = PDF::loadView('bookPdf', compact('booking', 'user', 'room'));
-
         return $pdf->download('receive.pdf');
     }
 
@@ -136,7 +143,8 @@ class BookingController extends Controller
         $booking = Booking::find($id);
         $user = User::find($booking->user_userid);
         $room = Room::find($booking->room_roomid);
-        Mail::to('zisarknar.me@gmail.com')->send(new SendMailable($booking, $user, $room));
-        return "email sent";
+        Mail::to($user->email)->send(new SendMailable($booking, $user, $room));
+        alert()->success('Email sent');
+        return redirect()->route('clients.profile')->with('alert', 'Email Sent!');
     }
 }

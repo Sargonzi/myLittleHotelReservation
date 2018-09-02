@@ -153,7 +153,7 @@ class BookingController extends Controller
         $booking = Booking::find($id);
         $user = User::find($booking->user_userid);
         $room = Room::find($booking->room_roomid);
-        Mail::to('zisarknar.me@gmail.com')->send(new SendMailable($booking, $user, $room));
-        return redirect()->route('bookings.index');
+        Mail::to($user->email)->send(new SendMailable($booking, $user, $room));
+        return redirect()->route('bookings.index')->with('alert', 'Email Sent!');
     }
 }
