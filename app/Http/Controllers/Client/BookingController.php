@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Booking;
+use App\Room;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -18,7 +19,7 @@ class BookingController extends Controller
     public function index()
     {
         //
-        if(Auth::check() == false){
+        if (Auth::check() == false) {
             return redirect()->route('login');
         }
         return View('client.book');
@@ -29,26 +30,42 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
+        $room = Room::find($id);
+        $user = Auth::user();
+        return View('client.book', compact('room', 'user'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
+        $booking = [
+            'booking_code' => $request->input('bookingCode') . rand(100000, 999999),
+            'user_userid' => $request->input('userId'),
+            'room_roomid' => $request->input('roomId'),
+            'check_in' => $request->input('checkIn'),
+            'check_out' => $request->input('checkOut'),
+            'status' => "1"
+        ];
+        Booking::create($booking);
+        $bookedRoom = Room::find($request->input('roomId'));
+        $bookedRoom->status = '0';
+        $bookedRoom->save();
+        return View('client.success');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -59,7 +76,7 @@ class BookingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -70,8 +87,8 @@ class BookingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -82,11 +99,31 @@ class BookingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    public function download($id)
+    {
+        $booking = Booking::find($id);
+        $user = User::find($booking->user_userid);
+        $room = Room::find($booking->room_roomid);
+
+        $pdf = PDF::loadView('bookPdf', compact('booking', 'user', 'room'));
+
+        return $pdf->download('receive.pdf');
+    }
+
+    public function email($id)
+    {
+        $booking = Booking::find($id);
+        $user = User::find($booking->user_userid);
+        $room = Room::find($booking->room_roomid);
+        Mail::to('zisarknar.me@gmail.com')->send(new SendMailable($booking, $user, $room));
+        return "email sent";
     }
 }

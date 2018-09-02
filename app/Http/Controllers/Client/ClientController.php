@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,8 @@ class ClientController extends Controller
     public function profile()
     {
         $user = User::find(Auth::user()->id);
-        return View('client.profile', compact('user'));
+        $books = Booking::where('user_userid', Auth::user()->id)->get();
+        return View('client.profile', compact('user', 'books'));
     }
 
     /**

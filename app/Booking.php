@@ -13,7 +13,7 @@ class Booking extends Model
      * @var array
      */
     protected $fillable = [
-        'booking_code', 'user_userid', 'room_roomid', 'status', 'check_in', 'check_out'
+        'booking_code', 'user_userid', 'room_roomid', 'status', 'check_in', 'check_out','total_price'
     ];
 
 }

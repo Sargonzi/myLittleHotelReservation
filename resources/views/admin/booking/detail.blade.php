@@ -41,7 +41,8 @@
 
                         <p class="text-muted">
                             {{ $userName->name }}
-                            <span class="pull-right"><a class="btn btn-flat btn-primary btn-sm" href="{{ route('users.show', $userName->id) }}">detail</a> </span>
+                            <span class="pull-right"><a class="btn btn-flat btn-primary btn-sm"
+                                                        href="{{ route('users.show', $userName->id) }}">detail</a> </span>
                         </p>
 
                         <hr>
@@ -71,12 +72,22 @@
                             {{ $booking->check_out }}
                         </p>
 
+                        <hr>
+
+                        <strong><i class="fa fa-dollar margin-r-5"></i> Total price</strong>
+
+                        <p class="text-muted">
+                            {{ $booking->total_price }} MMKS
+                        </p>
+
                     </div>
                     <div class="box-footer">
                         <a class="btn btn-primary btn-flat" href="#">Edit</a>
                         <a class="btn btn-primary btn-flat" href="{{ route('bookings.index') }}">Ok</a>
-                        <a class="btn btn-primary btn-flat" href="{{ route('bookings.download', $booking->id) }}"><i class="fa fa-print fa-fw"></i></a>
-                        <a class="btn btn-primary btn-flat" href="{{ route('bookings.email', $booking->id) }}"><i class="fa fa-mail-forward fa-fw"></i></a>
+                        <a class="btn btn-primary btn-flat" href="{{ route('bookings.download', $booking->id) }}"><i
+                                    class="fa fa-print fa-fw"></i></a>
+                        <a class="btn btn-primary btn-flat" href="{{ route('bookings.email', $booking->id) }}"><i
+                                    class="fa fa-envelope-o fa-fw"></i></a>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/set1.css')}}"/>
     <link href="{{ asset('css/overwrite.css')}}" rel="stylesheet">
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet"
+          href="{{ asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -36,7 +39,7 @@
             <div class="menu">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="{{ route('clients.home') }}">Home</a></li>
-                    <li role="presentation"><a href="{{ route('clients.booking') }}">Booking</a></li>
+                    <li role="presentation"><a href="#">Booking</a></li>
                     <li role="presentation"><a href="{{ route('clients.room') }}">Rooms</a></li>
                     @if (Route::has('login'))
                         @auth
@@ -144,6 +147,9 @@
 <script type="text/javascript" src="{{ asset('js/jquery.bxslider.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/fliplightbox.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/functions.js')}}"></script>
+
+<!-- bootstrap datepicker -->
+<script src="{{ asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <script type="text/javascript">
     $('.portfolio').flipLightBox()
 </script>

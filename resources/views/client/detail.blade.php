@@ -60,7 +60,9 @@
                     </div>
 
                     <div class="panel-footer">
-                        <a href="{{ route('clients.booking') }}" class="btn btn-flat btn-primary">Book</a>
+
+                        <a href="{{ route('clients.booking', $room->id) }}" class="btn btn-flat btn-primary" {{ $room->status == 0 ? "disabled" : ""}}>Book</a>
+
                         <a href="{{ route('clients.room') }}" class="btn btn-flat btn-primary">Cancel</a>
                     </div>
                 </div>

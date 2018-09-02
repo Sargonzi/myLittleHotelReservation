@@ -20,6 +20,7 @@ class CreateBookingsTable extends Migration
             $table->integer('room_roomid');
             $table->string('check_in');
             $table->string('check_out');
+            $table->string('total_price');
             $table->integer('status')->default(2);
 //            check in and check out
             $table->timestamps();

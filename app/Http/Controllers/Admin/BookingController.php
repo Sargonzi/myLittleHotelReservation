@@ -11,6 +11,7 @@ use App\User;
 use PDF;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
+use DateTime;
 
 
 class BookingController extends Controller
@@ -51,12 +52,20 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //
+        $room = Room::find($request->input('room_id'));
+        $fdate = $request->input('checkIn');
+        $tdate = $request->input('checkOut');
+        $datetime1 = new DateTime($fdate);
+        $datetime2 = new DateTime($tdate);
+        $interval = $datetime1->diff($datetime2);
+        $totalPrice = $room->price * (int)$interval->d;
         $booking = [
             'booking_code' => $request->input('bookingCode'),
             'user_userid' => $request->input('user_id'),
             'room_roomid' => $request->input('room_id'),
             'check_in' => $request->input('checkIn'),
             'check_out' => $request->input('checkOut'),
+            'total_price' => $totalPrice,
             'status' => $request->input('status') ? '1' : '0'
         ];
         Booking::create($booking);
