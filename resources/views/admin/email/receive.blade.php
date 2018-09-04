@@ -19,7 +19,7 @@
     from <b>{{ $booking->check_in }}</b> to <b>{{ $booking->check_out }}</b>.
     The Total price will be <b>{{ $booking->total_price }} MMKS.</b>
 </p>
-<p> Sincerely, From littleHotel </p>
+<p> Sincerely, From KyawZinHotel </p>
 
 <table style="width: 100%; border: #000000 1px;">
     <thead>
